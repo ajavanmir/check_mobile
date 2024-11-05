@@ -1,0 +1,45 @@
+<!--
+Copyright amir javanmir
+Released on: November 5, 2024
+-->
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدیریت مخاطبین</title>
+    <link href="./css/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1>مدیریت مخاطبین</h1>
+        
+        <div class="instructions">
+            <p>راهنما:</p>
+            <ul>
+                <li>هر مخاطب را در یک خط وارد کنید</li>
+                <li>بین نام و شماره از خط تیره (-) استفاده کنید</li>
+                <li>شماره تلفن می تواند با 0 یا +98 شروع شود</li>
+            </ul>
+        </div>
+
+        <div>
+            <textarea id="input" placeholder="اطلاعات مخاطبین را اینجا وارد کنید..."></textarea>
+        </div>
+
+        <div class="buttons">
+            <button onclick="abbreviateContacts()">پردازش مخاطبین</button>
+        </div>
+
+        <div>
+            <textarea id="output" placeholder="نتیجه اینجا نمایش داده خواهد شد..." readonly></textarea>
+        </div>
+
+        <div class="buttons">
+            <button onclick="downloadTextFile()">دانلود فایل</button>
+        </div>
+    </div>
+
+    <script src="./js/file.js"></script>
+</body>
+</html>
