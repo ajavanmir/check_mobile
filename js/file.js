@@ -22,7 +22,6 @@ function abbreviateContacts(){
         }else{
             return;
         }
-
         if(phone.length == 11 && phone.startsWith("09")){
             uniqueContacts.set(phone, name);
         }
@@ -55,11 +54,11 @@ function isPhoneNumber(str){
 
 function normalizePhone(str){
     str = str.replace(/\s+/g,"");
-    if(str.startsWith("(+98)") || str.startsWith("(98)")){
+    if(str.startsWith("(+98)") || str.startsWith("(98)") || str.startsWith("+(98)")){
         str = '0' + str.slice(str.indexOf(')') + 1);
-    }else if(str.startsWith("[+98]") || str.startsWith("[98]")){
+    }else if(str.startsWith("[+98]") || str.startsWith("[98]") || str.startsWith("+[98]")){
         str = '0' + str.slice(str.indexOf(']') + 1);
-    }else if(str.startsWith("{+98}") || str.startsWith("{98}")){
+    }else if(str.startsWith("{+98}") || str.startsWith("{98}") || str.startsWith("+{98}")){
         str = '0' + str.slice(str.indexOf('}') + 1);
     }else{
         str = str.replace(/^(\+)?98/, "0");
