@@ -1,4 +1,4 @@
-# check mobile
+# Check Mobile
 Enter your mobile numbers along with the names of people so that their duplicates are removed and all are available to you in one structure.
 For example:
 
@@ -20,6 +20,7 @@ For example:
 output:
 
 /*
+
 09876543211 - amir javanmir
 
 09876543212 - amir javanmir
@@ -33,4 +34,5 @@ output:
 09876543216 - amir javanmir
 
 09876543217 - amir javanmir
+
 */
