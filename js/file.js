@@ -61,33 +61,34 @@ function isPhoneNumber(str) {
         /^\+\[98\]9\d{9}$/,
         /^\{\+?98\}9\d{9}$/,
         /^\+\{98\}9\d{9}$/,
-        /^0(\d{3}[\.\-]?){3}$/,
-        /^(\+98|98)(\d{3}[\.\-]?){3}$/,
-        /^\(\+?98\)(\d{3}[\.\-]?){3}$/,
-        /^\[\+?98\](\d{3}[\.\-]?){3}$/,
-        /^\{\+?98\}(\d{3}[\.\-]?){3}$/
+        /^09(?:\d-?|\d\.?){8}[0-9]$/,
+        /^(\+98|98)9(?:\d-?|\d\.?){8}[0-9]$/,
+        /^\(\+?98\)9(?:\d-?|\d\.?){8}[0-9]$/,
+        /^\[\+?98\]9(?:\d-?|\d\.?){8}[0-9]$/,
+        /^\{\+?98\}9(?:\d-?|\d\.?){8}[0-9]$/
     ];
 
     return patterns.some(pattern => pattern.test(str));
 }
 
 function normalizePhone(str) {
-    str = convertPersianToEnglish(str);
-    str = str.replace(/[\s\.\-]+/g, "");
 
-    if (str.startsWith("(+98)") || str.startsWith("(98)") || str.startsWith("+(98)")) {
+    str = convertPersianToEnglish(str);
+    
+    if(str.startsWith("(+98)") || str.startsWith("(98)") || str.startsWith("+(98)")) {
         str = '0' + str.slice(str.indexOf(')') + 1);
-    } else if (str.startsWith("[+98]") || str.startsWith("[98]") || str.startsWith("+[98]")) {
+    } else if(str.startsWith("[+98]") || str.startsWith("[98]") || str.startsWith("+[98]")) {
         str = '0' + str.slice(str.indexOf(']') + 1);
-    } else if (str.startsWith("{+98}") || str.startsWith("{98}") || str.startsWith("+{98}")) {
+    } else if(str.startsWith("{+98}") || str.startsWith("{98}") || str.startsWith("+{98}")) {
         str = '0' + str.slice(str.indexOf('}') + 1);
     } else {
         str = str.replace(/^(\+)?98/, "0");
     }
-    
-    str = str.replace(/[\.\-]/g, "");
 
-    if (!str.startsWith("09")) {
+    // Remove all spaces, dots, and dashes (مرتب سازی ترتیب عملیات)
+    str = str.replace(/[\s\.\-]+/g, "");
+
+    if(!str.startsWith("09")) {
         return "";
     }
     return str;
