@@ -89,4 +89,4 @@ You can test the tool by running `index.html` in your browser. Paste your contac
 ### **License**
 This project is licensed under the MIT License.  
 **Copyright Amir Javanmir**  
-Released on: June 13, 2023
+Released on: November 5, 2024
